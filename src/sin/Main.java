@@ -2,6 +2,7 @@ package sin;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.geom.Point2D;
 import javax.swing.JFrame;
 
 /**
@@ -10,17 +11,22 @@ import javax.swing.JFrame;
  */
 public class Main {
     public static void main(String[] args){
-        window();        
-        SineWave.arcSin(10,10000,0,0);    
+        System.out.println("Main Run");
+        window();
+        System.out.println("Main End");         
     }
-    public static void window(){
+    
+    
+    
+    public static void window(){  
+        System.out.println("window start"); 
         JFrame window = new JFrame();
         window.setSize(1000,1000);
         window.setTitle("A Window");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Painter p = new Painter();
         window.add(p);
-        window.setVisible(true);               
-        //paint
+        window.setVisible(true);   
+        System.out.println("window End"); 
     }    
 }

@@ -2,47 +2,26 @@ package sin;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.Random;
 
 /**
  *
  * @author Peridactite
  */
-public class SineWave {      
-    public static void arcSin(int amplitude){
-
-        for(double i = 0; i <= 1000; i = i + 1){
-//            System.out.println("i: " + i);
-            //   amplitude * sin(x/amplitude)
-            int numberSpaces = (int)Math.floor(amplitude * Math.sin(i/amplitude));
-            numberSpaces = numberSpaces + amplitude;
-            for(int j = 0; j <= numberSpaces; j = j + 1){
-                System.out.print(" ");
-            }
-            System.out.println("o");
-        }
+public class SineWave { 
+    /**
+     * 
+     * @param x
+     * @param amplitude
+     * @param period
+     * @param phaseShift
+     * @param verticalShift
+     * @return 
+     */
+    public static float arcSin(float x, float amplitude, float period, float phaseShift, float verticalShift){
+        return (amplitude * (float)Math.sin(((2f * (float)Math.PI)/period) * (x + phaseShift)) + verticalShift);
     }
-    //TODO Bug: Fix odd numbered amplitude
     
-    public static void arcSin(float amplitude, float period, float phaseShift, float verticalShift){
-
-        for(double i = 0; i <= 1000; i = i + 1){
-//            System.out.println("i: " + i);
-            //   amplitude * sin(x/amplitude)
-            int numberSpaces = (int)Math.floor(amplitude * Math.sin(period*(i + phaseShift)) + verticalShift);
-            numberSpaces = numberSpaces + (int)amplitude;
-//            System.out.println("spaces: " + numberSpaces);
-            for(int j = 0; j <= numberSpaces; j = j + 1){
-                System.out.print(" ");
-            }
-            System.out.println("o");
-        }
-    }
-     
-    public static void main(String[] args){
-        
-        SineWave.arcSin(10,10000,0,0);
-    
-    }
     public static void wave(int amplitude){
         for(int i = 0; i <= 100; i = i + 1){
 //            System.out.println("i: " + i);
@@ -59,5 +38,25 @@ public class SineWave {
             }
             System.out.println("o");
         }
+    }
+          
+    public static void arcSin(int amplitude){
+
+        for(double i = 0; i <= 1000; i = i + 1){
+//            System.out.println("i: " + i);
+            //   amplitude * sin(x/amplitude)
+            int numberSpaces = (int)Math.floor(amplitude * Math.sin(i/amplitude));
+            numberSpaces = numberSpaces + amplitude;
+            for(int j = 0; j <= numberSpaces; j = j + 1){
+                System.out.print(" ");
+            }
+            System.out.println("o");
+        }
+    }
+    //TODO Bug: Fix odd numbered amplitude
+    
+    public static void main(String[] args){
+        //testing
+//        SineWave.arcSin(10,10000,0,0);    
     }
 }
